@@ -1,5 +1,5 @@
 -- ==============================================================
--- Neovim 0.12+ init.lua (на основе SvenBroeckling/nvim-0.12-config)
+-- Neovim 0.12+ init.lua (by drone)
 -- ==============================================================
 
 -- ============================================================================
@@ -11,7 +11,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
   { src = 'https://github.com/nvim-lualine/lualine.nvim' },
   { src = 'https://github.com/stevearc/oil.nvim' },
-  { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
+  { src = 'https://github.com/catppuccin/nvim',                     name = 'catppuccin' },
   { src = 'https://github.com/shortcuts/no-neck-pain.nvim' },
   { src = 'https://github.com/lukas-reineke/indent-blankline.nvim', main = 'ibl' },
   { src = 'https://github.com/mbbill/undotree' },
@@ -220,6 +220,11 @@ vim.api.nvim_create_autocmd('VimEnter', {
     })
   end,
 })
+
+vim.keymap.set('n', '<space>f', function()
+  vim.lsp.buf.format { async = true }
+end, opts)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
 -- ============================================================================
 -- 5. Telescope
