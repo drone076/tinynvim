@@ -101,20 +101,14 @@ vim.keymap.set('n', '-', require('oil').open, { desc = 'Open parent directory' }
 
 --: Clipboard & delete
 vim.keymap.set('i', '<C-c>', '<Esc>')
-vim.keymap.set('x', '<leader>p', [['_dP]])
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [['_d]])
-
---: Quickfix / loclist
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
+vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
 --: Oil, Undotree, Trouble
 require('oil').setup()
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 require('trouble').setup()
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 
 -- ============================================================================
 -- 4. Отложенная инициализация (после загрузки плагинов)
