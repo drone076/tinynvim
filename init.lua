@@ -107,8 +107,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 --: Oil, Undotree, Trouble
 require('oil').setup()
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
 require('trouble').setup()
--- vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>y', vim.diagnostic.open_float)
 
 -- ============================================================================
 -- 4. Отложенная инициализация (после загрузки плагинов)
