@@ -6,7 +6,7 @@
 -- 1. Плагины (только регистрация)
 -- ============================================================================
 
--- UI & UX
+--: UI & UX
 vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
   { src = 'https://github.com/nvim-lualine/lualine.nvim' },
@@ -18,12 +18,12 @@ vim.pack.add({
   { src = 'https://github.com/folke/trouble.nvim' },
 })
 
--- Git
+--: Git
 vim.pack.add({
   { src = 'https://github.com/tpope/vim-fugitive' },
 })
 
--- Completion & LSP stack
+--: Completion & LSP stack
 vim.pack.add({
   { src = 'https://github.com/hrsh7th/nvim-cmp' },
   { src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
@@ -32,12 +32,12 @@ vim.pack.add({
   { src = 'https://github.com/neovim/nvim-lspconfig' },
 })
 
--- Treesitter
+--: Treesitter
 vim.pack.add({
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
 })
 
--- Telescope
+--: Telescope
 vim.pack.add({
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope.nvim' },
@@ -47,11 +47,11 @@ vim.pack.add({
 -- 2. Базовые настройки (без зависимости от плагинов)
 -- ============================================================================
 
--- Leader
+--: Leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Behavior
+--: Behavior
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
@@ -62,17 +62,17 @@ vim.opt.colorcolumn = '80'
 vim.opt.relativenumber = true
 vim.opt.number = true
 
--- Tabs & Indent
+--: Tabs & Indent
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
--- UI
+--: UI
 vim.cmd [[ set noswapfile ]]
 vim.cmd [[ set termguicolors ]]
 
--- Disable arrow keys
+--: Disable arrow keys
 for _, key in ipairs({ '<Up>', '<Down>', '<Left>', '<Right>' }) do
   vim.keymap.set('n', key, '<Nop>')
 end
@@ -81,13 +81,13 @@ end
 -- 3. Клавиши и простые плагины (без LSP/completion)
 -- ============================================================================
 
--- Window navigation
+--: Window navigation
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
--- Search & misc
+--: Search & misc
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('n', 'n', 'nzzzv')
@@ -99,18 +99,18 @@ vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 vim.keymap.set('n', '<c-_>', '<cmd>NoNeckPain<CR>')
 vim.keymap.set('n', '-', require('oil').open, { desc = 'Open parent directory' })
 
--- Clipboard & delete
+--: Clipboard & delete
 vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('x', '<leader>p', [['_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [['_d]])
 
--- Quickfix / loclist
+--: Quickfix / loclist
 vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
--- Oil, Undotree, Trouble
+--: Oil, Undotree, Trouble
 require('oil').setup()
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 require('trouble').setup()
@@ -174,7 +174,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
       },
     })
 
-    -- LSP diagnostics: виртуальный текст справа
+    --: LSP diagnostics: виртуальный текст справа
     vim.diagnostic.config({
       virtual_text = true,
       update_in_insert = false,
@@ -182,7 +182,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
       signs = true,
     })
 
-    -- Mason + LSP servers
+    --: Mason + LSP servers
     require('mason').setup()
     require('mason-lspconfig').setup({
       ensure_installed = { 'lua_ls', 'basedpyright', 'rust_analyzer', 'emmet_ls', 'eslint', 'ts_ls', 'tailwindcss', 'gopls' },
