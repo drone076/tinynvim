@@ -128,7 +128,16 @@ vim.api.nvim_create_autocmd('VimEnter', {
     })
     vim.cmd("colorscheme gruvbox")
 
-    require('lualine').setup()
+    require('lualine').setup({
+      sections = {
+        lualine_c = {
+          {
+            'filename',
+            path = 1
+    	    }
+        }
+      }
+    })
 
     -- ------------------------------------------------------------
     -- Treesitter
