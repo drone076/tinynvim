@@ -18,6 +18,7 @@ vim.pack.add({
   { src = 'https://github.com/folke/trouble.nvim' },
 })
 
+
 --: Git
 vim.pack.add({
   { src = 'https://github.com/tpope/vim-fugitive' },
@@ -106,7 +107,11 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
 --: Oil, Undotree, Trouble
-require('oil').setup()
+require('oil').setup({
+  view_options = {
+    show_hidden = true,
+  },
+})
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 require('trouble').setup()
@@ -274,3 +279,15 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_python_provider = 0
+
+
+-- Автоматически восстанавливать позицию курсора при открытии файла
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
