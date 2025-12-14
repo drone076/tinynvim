@@ -111,6 +111,9 @@ require('oil').setup({
   view_options = {
     show_hidden = true,
   },
+  confirmation = {
+    border = "single",
+  },
 })
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
