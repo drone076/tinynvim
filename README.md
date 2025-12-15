@@ -6,4 +6,4 @@ This is a minimal, single-file `init.lua` setup for Neovim 0.12+, using native p
 
 * **Neovim 0.12** or newer.
 * **`git`** must be installed and available in your `PATH`.
-* A **[Nerd Font](https://www.nerdfonts.com/font-downloads)** is required for icons in `lualine`, `bufferline`, and `nvim-tree`.
+* A **[Nerd Font](https://www.nerdfonts.com/font-downloads)** is required for icons in `lualine`, `oil.nvim`.
