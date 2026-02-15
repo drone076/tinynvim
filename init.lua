@@ -47,6 +47,16 @@ vim.pack.add({
   { src = 'https://github.com/nvim-telescope/telescope.nvim' },
 })
 
+vim.pack.add({
+  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
+})
+
+-- ------------------------------------------------------------
+-- harpoon
+-- ------------------------------------------------------------
+local harpoon = require("harpoon")
+harpoon:setup()
+
 -- ============================================================================
 -- 2. Базовые настройки (без зависимости от плагинов)
 -- ============================================================================
@@ -108,6 +118,19 @@ vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
+--: harpoon
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+
 --: Oil, Undotree, Trouble
 require('oil').setup({
   view_options = {
@@ -148,6 +171,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
         }
       }
     })
+
 
     -- ------------------------------------------------------------
     -- Treesitter
