@@ -159,7 +159,9 @@ require("oil").setup({
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 require("trouble").setup()
-vim.keymap.set("n", "<leader>y", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("v", "<space>y", '"*y', { desc = "Copy selection to Clipboard" })
+vim.keymap.set("n", "<space>Y", 'ma ggVG"*y `a', { desc = "Copy entire file to Clipboard" })
 
 -- ============================================================================
 -- 4. Отложенная инициализация (после загрузки плагинов)

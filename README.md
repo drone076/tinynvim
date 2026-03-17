@@ -59,7 +59,7 @@ A minimal, single-file `init.lua` setup for Neovim 0.12+, leveraging native pack
 | `no-neck-pain.nvim` | Editor centering | `<c-_>` — toggle |
 | `indent-blankline.nvim` | Indentation guides | Auto-configured via `ibl` |
 | `undotree` | Undo history visualization | `<leader>u` — toggle |
-| `trouble.nvim` | Diagnostics/errors list | `<leader>y` — show float diagnostic |
+| `trouble.nvim` | Diagnostics/errors list | `<leader>d` — show float diagnostic |
 
 ### 🔀 Git
 | Plugin | Purpose |
@@ -145,6 +145,8 @@ gr           — find references
 <C-c> (insert)  — exit to normal mode
 <leader>p (visual) — paste without yanking to register
 <leader>d (n/v)  — delete to black hole (don't pollute register)
+<space>y - copy selection to system clipboard (middle mouse button to paste)
+<space>Y - copy whole file to system clipboard (middle mouse button to paste)
 ```
 
 ### Utilities
