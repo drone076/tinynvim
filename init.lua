@@ -193,7 +193,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		-- ------------------------------------------------------------
 		-- Treesitter
 		-- ------------------------------------------------------------
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter.config").setup({
 			ensure_installed = { "javascript", "typescript", "python", "c", "lua", "vim", "vimdoc", "query", "go" },
 			sync_install = false,
 			auto_install = true,
@@ -248,7 +248,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"basedpyright",
+				-- "basedpyright",
 				"rust_analyzer",
 				"emmet_ls",
 				"eslint",
