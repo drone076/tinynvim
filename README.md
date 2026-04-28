@@ -1,4 +1,4 @@
-# Neovim 0.12+ Config (by drone)
+# Neovim 0.12+ Config (by drone076)
 
 A minimal, single-file `init.lua` setup for Neovim 0.12+, leveraging native package management (`vim.pack`) and a curated suite of modern plugins.
 
@@ -13,7 +13,8 @@ A minimal, single-file `init.lua` setup for Neovim 0.12+, leveraging native pack
 * **`git`** installed and available in your `PATH`
 * **[Nerd Font](https://www.nerdfonts.com/font-downloads)** — for icons in `lualine`, `oil.nvim`, `telescope`
 * **`ripgrep` (`rg`)** — for `telescope live_grep` functionality
-* **Node.js** — for installing formatters (`prettier`, `eslint`) via Mason
++ **Node.js** — for Mason to install LSP servers and formatters (prettier, eslint, etc.)
++ **`tree-sitter-cli` ≥ 0.26.1** — for building parsers (install via `cargo` or package manager, NOT npm) [[48]]
 
 ---
 
@@ -174,12 +175,12 @@ gr           — find references
 
 4. **Install LSP servers & formatters via Mason**:
    ```vim
-   :MasonInstall lua_ls basedpyright gopls prettier stylua
+   :MasonInstall lua_ls gopls rust_analyzer prettier stylua
    ```
 
 5. **Install Treesitter parsers**:
    ```vim
-   :TSInstall javascript typescript lua go python
+   :TSInstall javascript typescript python c lua vim vimdoc query go
    ```
 
 > 💡 **Tip**: If plugins fail to load, verify `git` is in PATH and you have internet access on first launch.

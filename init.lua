@@ -1,5 +1,5 @@
 -- ==============================================================
--- Neovim 0.12+ init.lua (by drone)
+-- Neovim 0.12+ init.lua (by drone076)
 -- ==============================================================
 
 vim.opt.shortmess:append("I")
@@ -193,7 +193,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		-- ------------------------------------------------------------
 		-- Treesitter
 		-- ------------------------------------------------------------
-		require("nvim-treesitter.config").setup({
+		require("nvim-treesitter.configs").setup({
 			ensure_installed = { "javascript", "typescript", "python", "c", "lua", "vim", "vimdoc", "query", "go" },
 			sync_install = false,
 			auto_install = true,
