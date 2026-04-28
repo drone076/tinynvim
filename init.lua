@@ -147,15 +147,7 @@ vim.keymap.set("n", "<C-S-N>", function()
 	harpoon:list():next()
 end)
 
---: Oil, Undotree, Trouble
-require("oil").setup({
-	view_options = {
-		show_hidden = true,
-	},
-	confirmation = {
-		border = "single",
-	},
-})
+--: Undotree, Trouble
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 require("trouble").setup()
@@ -178,6 +170,25 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			transparent_mode = true,
 		})
 		vim.cmd("colorscheme gruvbox")
+
+		-- nvim-web-devicons: универсальный фолбэк
+		-- Показывать одну иконку для всех файлов без специфичной иконки
+		local devicons = require("nvim-web-devicons")
+		devicons.setup({
+			default = true, -- ✅ Включить дефолтную иконку
+			color_icons = true, -- ✅ Раскрашивать иконки
+			strict = false, -- ✅ Сначала по имени, потом по расширению
+		})
+		devicons.set_default_icon("", "#6d8086", 242)
+
+		require("oil").setup({
+			view_options = {
+				show_hidden = true,
+			},
+			confirmation = {
+				border = "single",
+			},
+		})
 
 		require("lualine").setup({
 			sections = {
